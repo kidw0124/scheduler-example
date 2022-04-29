@@ -1,0 +1,33 @@
+.login {
+	display: flex;
+	height: 100%;
+	background-color: aquamarine;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+}
+
+.input-user-data {
+	width: max-content;
+	height: 3rem;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	justify-self: center;
+}
+
+.user-data-row {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.user-data-row-title {
+	text-align: left;
+	width: 30%;
+	min-width: 4rem;
+}
+
+.user-data-row-input {
+	width: 70%;
+}
