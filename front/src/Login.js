@@ -1,5 +1,6 @@
 import "./Login.css";
 import { useState, useEffect } from "react";
+import { Link, Navigate } from "react-router-dom";
 
 function UserDataRow({ title, shown, maxLength, setter }) {
 	return (
@@ -17,12 +18,15 @@ function UserDataRow({ title, shown, maxLength, setter }) {
 		</div>
 	);
 }
-function Button({ id, pw }) {
+function Button({ id, pw, setUserDt, userDt }) {
 	return (
 		<div
 			id="login-button"
 			onClick={() => {
-				alert("ID: " + id + "\nPW: " + pw);
+				if (id === "a" && pw === "b") {
+					console.log(id, pw);
+					setUserDt({ ...userDt, logined: true, name: "이유림" });
+				}
 			}}
 		>
 			로그인
@@ -47,17 +51,28 @@ function InputUserData({ setId, setPw }) {
 		</div>
 	);
 }
-function Login() {
+function Login(props) {
 	const [id, setId] = useState("");
 	const [pw, setPw] = useState("");
-	return (
-		<div className="login">
-			<div id="login-info">
-				<InputUserData setId={setId} setPw={setPw} />
-				<Button id={id} pw={pw} />
+	if (props.userDt.logined) {
+		return (
+			<Navigate to={{ pathname: "/home", state: { name: "이유림" } }} />
+		);
+	} else {
+		return (
+			<div className="login">
+				<div id="login-info">
+					<InputUserData setId={setId} setPw={setPw} />
+					<Button
+						id={id}
+						pw={pw}
+						setUserDt={props.setUserDt}
+						userDt={props.userDt}
+					/>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }
 
 export default Login;
