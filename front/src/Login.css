@@ -1,7 +1,7 @@
 .login {
 	display: flex;
 	height: 100%;
-	background-color: aquamarine;
+	background-color: #a55bd67e;
 	justify-content: center;
 	justify-items: center;
 	align-items: center;
@@ -9,7 +9,7 @@
 
 .input-user-data {
 	width: max-content;
-	height: 3rem;
+	height: 100%;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
@@ -30,4 +30,34 @@
 
 .user-data-row-input {
 	width: 70%;
+}
+
+#login-button {
+	width: 4rem;
+	height: 80%;
+	background-color: #2077ff99;
+	cursor: pointer;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	user-select: none;
+	border: 1.5px solid #00000077;
+	border-radius: 10px;
+}
+
+#login-button:hover {
+	border-width: 2px;
+	border-color: #000000;
+	font-weight: bold;
+	box-shadow: 1px 1px 3px 1px gray;
+}
+#login-info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 50%;
+	max-width: 20rem;
+	align-items: center;
+	height: 3rem;
 }

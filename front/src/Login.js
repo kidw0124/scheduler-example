@@ -3,12 +3,31 @@ import "./Login.css";
 function UserDataRow({ title, shown, maxLength }) {
 	return (
 		<div className="user-data-row">
-			<text className="user-data-row-title">{title}</text>
+			<div className="user-data-row-title">{title}</div>
 			<input
 				className="user-data-row-input"
+				id={"user-data-row-input-" + title}
 				maxLength={maxLength}
 				type={shown ? "input" : "password"}
 			/>
+		</div>
+	);
+}
+function Button() {
+	return (
+		<div
+			id="login-button"
+			onClick={() => {
+				const id = document.getElementById(
+					"user-data-row-input-ID"
+				).value;
+				const pw = document.getElementById(
+					"user-data-row-input-비밀번호"
+				).value;
+				alert("ID: " + id + "\nPW: " + pw);
+			}}
+		>
+			로그인
 		</div>
 	);
 }
@@ -23,7 +42,10 @@ function InputUserData() {
 function Login() {
 	return (
 		<div className="login">
-			<InputUserData />
+			<div id="login-info">
+				<InputUserData />
+				<Button />
+			</div>
 		</div>
 	);
 }
