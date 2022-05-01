@@ -20,7 +20,7 @@ function UserDataRow({ title, shown, maxLength, setter }) {
 }
 function Button({ id, pw, setUserDt, userDt }) {
 	return (
-		<div
+		<button
 			id="login-button"
 			onClick={() => {
 				if (id === "a" && pw === "b") {
@@ -30,7 +30,7 @@ function Button({ id, pw, setUserDt, userDt }) {
 			}}
 		>
 			로그인
-		</div>
+		</button>
 	);
 }
 function InputUserData({ setId, setPw }) {
@@ -61,7 +61,7 @@ function Login(props) {
 	} else {
 		return (
 			<div className="login">
-				<div id="login-info">
+				<form id="login-info">
 					<InputUserData setId={setId} setPw={setPw} />
 					<Button
 						id={id}
@@ -69,7 +69,7 @@ function Login(props) {
 						setUserDt={props.setUserDt}
 						userDt={props.userDt}
 					/>
-				</div>
+				</form>
 			</div>
 		);
 	}
